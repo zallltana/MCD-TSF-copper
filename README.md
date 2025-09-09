@@ -123,6 +123,12 @@ python view_predictions.py
 
 # 高级预测分析（包含概率分布和置信区间）
 python advanced_prediction_viewer.py
+
+# 快速可视化（推荐）
+python quick_visualize.py
+
+# 完整可视化分析
+python visualize_predictions.py
 ```
 
 ### 3. 处理重叠预测
@@ -191,9 +197,32 @@ python overlapping_prediction_handler.py
 - 一致性分析
 
 ### 3. 可视化分析
-- 预测分布图
-- 置信区间可视化
-- 时间序列预测图
+- **时间序列预测图**: 横轴时间，纵轴OT值，包含50%和90%置信区间
+- **预测分布图**: 每个预测点的概率分布直方图
+- **置信区间分析**: 置信区间宽度和覆盖范围分析
+- **多样本对比**: 多个预测样本的对比可视化
+
+## 可视化使用示例
+
+### 快速可视化
+```bash
+# 交互式选择可视化类型
+python quick_visualize.py
+
+# 直接可视化第一个样本
+python -c "from quick_visualize import quick_plot_predictions; quick_plot_predictions(sample_idx=0)"
+```
+
+### 完整可视化分析
+```bash
+# 生成所有可视化图表
+python visualize_predictions.py
+```
+
+### 可视化输出
+- **时间序列图**: 显示历史数据、预测值和置信区间
+- **分布图**: 每个预测点的概率分布
+- **置信区间分析**: 不确定性量化分析
 
 ## 注意事项
 
@@ -201,6 +230,7 @@ python overlapping_prediction_handler.py
 2. **GPU内存**：大模型可能需要较多GPU内存
 3. **训练时间**：完整训练可能需要数小时
 4. **数据质量**：确保数值和文本数据的时间对齐
+5. **可视化依赖**：需要安装matplotlib和seaborn
 
 ## 贡献
 
